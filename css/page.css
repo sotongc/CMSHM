@@ -45,8 +45,8 @@ table td{font-size:12px;text-overflow:ellipsis;overflow:hidden;}
 .detail{color:#444444;}
 .detail th,.detail td{border:1px solid #b1b1b1;border-left:none;}
 .detail .th{height:61px;}
-.detail .td{height:30px;}
-.detail .td img{width:100%;height:auto;}
+.detail .td{height:30px;width:100%;}
+.detail .td img{object-fit:cover;width:100%;height:120px;}
 
 /*loading animation*/
 .loading-cover{position:fixed;display:none;background-color:rgba(0,0,0,0.6);top:0px;left:0px;right:0px;bottom:0px;z-index:10;}
