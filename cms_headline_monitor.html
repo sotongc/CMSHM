@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>CMS Headline Monitor</title>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+		<link rel="stylesheet" type="text/css" href="css/page.css"/>
+	</head>
+	<body>
+		<header class="header">
+			<h1 class="heading">CMS Headline Monitor</h1>
+		</header>
+		<main class="main">
+			<nav class="nav">
+				<ul id="menu">
+					<li class="on" data-tab="headline">Headline</li>
+					<li data-tab="front_news">Top News</li>
+					<li data-tab="coverage">Coverage</li>
+				</ul>
+			</nav>
+			<div class="content">
+				<div class="toolbar" id="tools">
+					<button class="refresh" data-btn="refresh">refresh</button>
+				</div>
+				<div class="detail" id="info">
+					<table>
+						<thead>
+							<tr class="th">
+								<th width="10%">Domain</th>
+								<th width="20%">Images</th>
+								<th width="20%">Title</th>
+								<th width="10%">Topic</th>
+								<th width="10%">
+									<span>Time</span>
+									<i class="ascending arrow" data-vm="ascending"></i>
+								</th>
+								<th width="30%">URL</th>
+							</tr>
+						</thead>
+						<tbody data-tbody>
+							<tr class="td"><td colspan='6' colspan='3'>No Data</td></tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</main>
+		<div class="loading-cover" id="loading">
+			<div class="loading">
+				<div class="dot white"></div>
+				<div class="dot"></div>
+				<div class="dot"></div>
+				<div class="dot"></div>
+				<div class="dot"></div>
+			</div>
+		</div>
+	</body>
+	<!--template-->
+	<script type="text/template" id="tableTemp">
+		<%if(data.length){%>
+			<%for(var i=0;i<data.length;i++){%>
+				<tr class="td">
+					<td><%=data[i].domain;%></td>
+					<td>
+						<%if(data[i].pic){%>
+							<img src=<%=data[i].pic%> />
+						<%}else{%>
+							no image
+						<%}%>
+					</td>
+					<td><%=data[i].title;%></td>
+					<td><%='';%></td>
+					<td><%=data[i].publication_time;%></td>
+					<td><%=data[i].url;%></td>
+				</tr>
+			<%}%>
+		<%}else{%>
+			<tr class="td"><td colspan='6' colspan='3'>No Data</td></tr>
+		<%}%>
+	</script>
+	<!--lib-->
+	<script src="js/lib/jquery-3.1.0.min.js"></script>
+	<script src="js/lib/artTemplate.js"></script>
+	<script src="js/lib/require.js"></script>
+
+	<!--AMD Configruation-->
+	<script>
+		requirejs({
+			baseUrl:'js/',
+			paths:{
+				main:'page/main',
+				tab:'page/tab',
+				table:'page/table',
+				toolbar:'page/toolbar',
+				util:'page/util'
+			}
+		});
+	</script>
+
+	<!--main-->
+	<script>require(['main'],function(main){main.load();})</script>
+</html>

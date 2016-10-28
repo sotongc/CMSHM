@@ -1,0 +1,78 @@
+@charset "utf8";
+
+/*reset defaults*/
+*{margin:0px;padding:0px;box-sizing:border-box;}
+ul,ol,dl{list-style:none;}
+h1,h2,h3,h4,h5,h6{margin:0px;padding:0px;}
+button,input[type="button"],input[type="submit"]{cursor:pointer;}
+button:focus{outline:none;}
+
+html,body{height:100%;}
+
+.clearfix:after{content:".";display:block;height:0;visibility:hidden;clear:both;*zoom:1;}
+
+/*common*/
+button{padding:10px 20px;background-color:#CCCCCC;border:none;border-radius:8px;color:#FFFFFF;}
+table{width:100%;text-align:center;border-collapse:collapse;table-layout:fixed;}
+table td,table th{border:1px solid #000000;}
+table td{font-size:12px;text-overflow:ellipsis;overflow:hidden;}
+.main{font-size:16px;font-family:"Microsoft YaHei";padding-left:6.75%;display:flex;
+	flex-flow:row;}
+
+
+.arrow{width:0;height:0;border-left: 5px solid transparent;
+	border-right: 5px solid transparent;cursor:pointer;display:inline-block;transition:all 0.75s;}
+.ascending{border-bottom: 10px solid #FF0302;}
+.descending{border-top: 10px solid #00FE1E;}
+
+/*page*/
+.header{border-bottom:2px solid #cc0f16;}
+.heading{width:92%;margin:25px auto 5px;line-height:40px;padding-left:55px;
+	background:url(../images/logo.png) no-repeat;background-size:40px 40px;
+	font-size:24px;font-weight:500;}
+
+.nav{width:160px;background-color:#ebebeb;border-left:1px solid #b1b1b1;border-right:1px solid #b1b1b1;
+	text-align:center;line-height:60px;font-size:20px;color:#444444;}
+.nav li{border-bottom:1px solid #b1b1b1;cursor:pointer;}
+.nav .on{background-color:#FFFFFF;}
+
+.content{flex:1;}
+
+.toolbar{height:60px;background-color:#ebebeb;}
+.toolbar .refresh{padding:3px 15px;border-radius:25px;font-size:16px;
+	color:#FFFFFF;background-color:#666666;float:right;margin-right:40px;margin-top:16.6px;}
+
+.detail{color:#444444;}
+.detail th,.detail td{border:1px solid #b1b1b1;border-left:none;}
+.detail .th{height:61px;}
+.detail .td{height:30px;}
+.detail .td img{width:100%;height:auto;}
+
+/*loading animation*/
+.loading-cover{position:fixed;display:none;background-color:rgba(0,0,0,0.6);top:0px;left:0px;right:0px;bottom:0px;z-index:10;}
+.loading{position:absolute;margin:auto;top:0;bottom:0;left:0;right:0;width:6.250em;height:6.250em;-webkit-animation:rotate 2.4s linear infinite;-moz-animation:rotate 2.4s linear infinite;-o-animation:rotate 2.4s linear infinite;animation:rotate 2.4s linear infinite;}
+.loading .white{top:0;bottom:0;left:0;right:0;background:white;opacity:0;-webkit-animation:flash 2.4s linear infinite;-moz-animation:flash 2.4s linear infinite;-o-animation:flash 2.4s linear infinite;animation:flash 2.4s linear infinite;}
+.loading .dot{position:absolute;margin:auto;width:2.4em;height:2.4em;border-radius:100%;-webkit-transition:all 1s ease;-moz-transition:all 1s ease;-o-transition:all 1s ease;transition:all 1s ease;}
+.loading .dot:nth-child(2){top:0;bottom:0;left:0;background:#FF4444;-webkit-animation:dotsY 2.4s linear infinite;-moz-animation:dotsY 2.4s linear infinite;-o-animation:dotsY 2.4s linear infinite;animation:dotsY 2.4s linear infinite;}
+.loading .dot:nth-child(3){left:0;right:0;top:0;background:#FFBB33;-webkit-animation:dotsX 2.4s linear infinite;-moz-animation:dotsX 2.4s linear infinite;-o-animation:dotsX 2.4s linear infinite;animation:dotsX 2.4s linear infinite;}
+.loading .dot:nth-child(4){top:0;bottom:0;right:0;background:#99CC00;-webkit-animation:dotsY 2.4s linear infinite;-moz-animation:dotsY 2.4s linear infinite;-o-animation:dotsY 2.4s linear infinite;animation:dotsY 2.4s linear infinite;}
+.loading .dot:nth-child(5){left:0;right:0;bottom:0;background:#33B5E5;-webkit-animation:dotsX 2.4s linear infinite;-moz-animation:dotsX 2.4s linear infinite;-o-animation:dotsX 2.4s linear infinite;animation:dotsX 2.4s linear infinite;}
+@keyframes rotate{
+	0%{-webkit-transform:rotate(0);-moz-transform:rotate(0);-o-transform:rotate(0);transform:rotate(0);}
+	10%{width:6.250em;height:6.250em;}
+	66%{width:2.4em;height:2.4em;}
+	100%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);transform:rotate(360deg);width:6.250em;height:6.250em;}
+}
+@keyframes dotsY{
+	66%{opacity:.1;width:2.4em;}
+	77%{opacity:1;width:0;}
+}
+@keyframes dotsX{
+	66%{opacity:.1;height:2.4em;}
+	77%{opacity:1;height:0;}
+}
+@keyframes flash{
+	33%{opacity:0;border-radius:0%;}
+	55%{opacity:.6;border-radius:100%;}
+	66%{opacity:0;}
+}
